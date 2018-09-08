@@ -12,17 +12,33 @@ const leadself = "Me: ",
   ]
 
 let talk = (msg) => {
-
+	_echo(leadself + msg)
 }
 
 let replyYesOrNo = () => {
-
+	let msg = Math.random() > .5 ? msgYes : msgNo
+	_echo(leadcomputer + msg)
 }
 
 let saySassyStuff = () => {
-
+	let msg = aSassyStuff[ ~~Math.random() * aSassyStuff.length ]
+	_echo(leadcomputer + msg)
 }
 
 let _echo = (msg) => {
+	aSaid.push(`<div>${msg}</div>`)
+	let listLength = aSaid.length
+	let startNode = Math.max(aSaid.length - 6, 0)
+	let output = ''
+
+	for(let i = startNode; i < listLength; i++) {
+		output += aSaid[i]
+	}
+
+	let advert = document.querySelectorAll('.advert')[0]
+	advert.innerHTML = output
+
+	let winning = document.querySelectorAll('#talk span')[0]
+	winning.innerHTML = msg
 	
 }
