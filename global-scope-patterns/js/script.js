@@ -1,6 +1,6 @@
-// Separates private and public functions and variables
+// Building on with the global scope
+(function(win, doc) {
 const chatModule = (function() {
-	// "Private variables"
 	let _leadself = "Me: ",
 	_leadcomputer = "PC: ",
 	_aSaid = ["This is a Cyber Chat"],
@@ -14,9 +14,8 @@ const chatModule = (function() {
 	  "You’ve got about as much charm as a dead slug."
 	], 
 
-	// Underscore shows what is private
 	_echo = (msg) => {
-		aSaid.push(`<div>${msg}</div>`)
+		_aSaid.push(`<div>${msg}</div>`)
 		let listLength = _aSaid.length
 		let startNode = Math.max(_aSaid.length - 6, 0)
 		let output = ""
@@ -35,17 +34,20 @@ const chatModule = (function() {
 		
 	replyYesOrNo = () => {
 		let msg = Math.random() > 0.5 ? _msgYes : _msgNo
-		echo(_leadcomputer + msg)
+		_echo(_leadcomputer + msg)
 	}
 		
 	saySassyStuff = () => {
 		let msg = _aSassyStuff[~~Math.random() * _aSassyStuff.length]
-		echo(_leadcomputer + msg)
+		_echo(_leadcomputer + msg)
 	}
-	// Everything inside of the return object is considered public
 	return {
 		talk,
 		replyYesOrNo,
 		saySassyStuff
 	}
 })()
+	// Making the module accessible in the window scope
+	if (!win.chatModule) win.chatModule = chatModule
+	// Making window and document accessible in the anonymous function
+})(window, document)

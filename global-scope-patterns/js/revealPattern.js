@@ -30,7 +30,7 @@ const chatModule = (function() {
 	}
 	
 	talk = (msg) => {
-			_echo(_leadself + msg)
+		_echo(_leadself + msg)
 	}
 		
 	replyYesOrNo = () => {
