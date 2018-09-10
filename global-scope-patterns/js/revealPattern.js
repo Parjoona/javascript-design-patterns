@@ -35,12 +35,12 @@ const chatModule = (function() {
 		
 	replyYesOrNo = () => {
 		let msg = Math.random() > 0.5 ? _msgYes : _msgNo
-		echo(_leadcomputer + msg)
+		_echo(_leadcomputer + msg)
 	}
 		
 	saySassyStuff = () => {
 		let msg = _aSassyStuff[~~Math.random() * _aSassyStuff.length]
-		echo(_leadcomputer + msg)
+		_echo(_leadcomputer + msg)
 	}
 	// Everything inside of the return object is considered public
 	return {
