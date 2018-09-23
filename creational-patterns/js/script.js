@@ -43,6 +43,8 @@
 			let _aCircle = []
             let _stage = document.querySelector('.advert')
 			let _cf = new circleFactory()
+
+			// Adding support for the these type of circles
 			_cf.register('red', redCircle)
 			_cf.register('blue', blueCircle)
 
