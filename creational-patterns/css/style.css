@@ -33,6 +33,10 @@ a:hover {
   color: #edf7f2;
 }
 
+.info ul {
+  list-style: none;
+}
+
 .article {
   width: 900px;
   margin: 100px auto 100px auto;
@@ -69,13 +73,13 @@ a:hover {
   margin: 10px 20px;
 }
 .article li span {
-  background: yellow;
+  background: inherit;
   color: #d93232;
   margin-left: 10px;
 }
 
 .article ul {
-  padding: 10px;
+	padding: 10px;
 }
 
 .article .advert {
@@ -123,6 +127,18 @@ a:hover {
   width: 24px;
   background: url(../img/every.png);
 }
+
+.advert {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+} 
 
 @media only screen and (max-width: 900px) {
   .article {
