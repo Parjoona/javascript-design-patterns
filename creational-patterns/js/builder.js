@@ -86,18 +86,19 @@
 			_cf.register('blue', blueCircleBuilder)			
 
 			let _position = (circle, left, top) => {
-				circle.style.left = left + 'px'
-				circle.style.top = top + 'px'
+				circle.move(left, top)
 			}
 
 			let create = (left, top, type) => {
-				let circle = _cf.create(type).get()	
-				_position(circle, left, top)
+				// Gets the object (old: got the DOM object)
+				let circle = _cf.create(type)	
+				circle.move(left, top)
 				return circle
 			}
 
 			let addSelf = (circle) => {
-				_stage.append(circle)
+				// Gets the circle DOM (odl: got the circle object)
+				_stage.append(circle.get())
 				_aCircle.push(circle)
 			}
 
@@ -123,8 +124,7 @@
 	win.document.addEventListener("DOMContentLoaded",function(){
 		let adv = document.querySelector('.advert')
 		adv.addEventListener('click', function(e) {
-            let cg = circleGenSingleton.getInstance()
-            // X/Y is not placed correctly, to lazy to fix for this solution
+			let cg = circleGenSingleton.getInstance()
 			let circle = cg.create(e.clientX-500, e.clientY-360, 'red')
 			cg.addSelf(circle)
 		})

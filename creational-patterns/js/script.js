@@ -86,18 +86,19 @@
 			_cf.register('blue', blueCircleBuilder)			
 
 			let _position = (circle, left, top) => {
-				circle.style.left = left + 'px'
-				circle.style.top = top + 'px'
+				circle.move(left, top)
 			}
 
 			let create = (left, top, type) => {
-				let circle = _cf.create(type).get()	
-				_position(circle, left, top)
+				// Gets the object (old: got the DOM object)
+				let circle = _cf.create(type)	
+				circle.move(left, top)
 				return circle
 			}
 
 			let addSelf = (circle) => {
-				_stage.append(circle)
+				// Gets the circle DOM (odl: got the circle object)
+				_stage.append(circle.get())
 				_aCircle.push(circle)
 			}
 
