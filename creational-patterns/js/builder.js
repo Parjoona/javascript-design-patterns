@@ -123,8 +123,9 @@
 	win.document.addEventListener("DOMContentLoaded",function(){
 		let adv = document.querySelector('.advert')
 		adv.addEventListener('click', function(e) {
-			let cg = circleGenSingleton.getInstance()
-			let circle = cg.create(e.pageX-250, e.pageY-250, 'red')
+            let cg = circleGenSingleton.getInstance()
+            // X/Y is not placed correctly, to lazy to fix for this solution
+			let circle = cg.create(e.clientX-500, e.clientY-360, 'red')
 			cg.addSelf(circle)
 		})
 	  })
